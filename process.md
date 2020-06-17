@@ -96,5 +96,41 @@ in templates, create folder 'eapp' [same name as app; all other templates go her
 in templates/eapp, create index.html and add code
 
 #### run server -----
-`python manage.py runserver`
+`python manage.py runserver`  
 url is [ http://127.0.0.1:8000/eapp/ ]
+
+#### create model classes -----
+in eapp, models.py:
+
+```python
+from django.db import models
+from django.contrib.auth.models import User
+```
+
+create model classes from given examples
+
+#### migrate models to db -----
+`python manage.py makemigrations`
+
+#### register models in admin.py -----
+in eapp, admin.py:
+
+```python
+from django.contrib import admin
+from .models import *
+
+# Register your models here.
+
+
+admin.site.register(ExerciseType)
+admin.site.register(Exercise)
+```
+
+#### create super user -----
+`python manage.py createsuperuser`
+
+#### run server and log in to admin -----
+`python manage.py runserver`  
+url is [ http://127.0.0.1:8000/admin/ ]
+
+add sample data

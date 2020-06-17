@@ -4,6 +4,11 @@
 An exercise tracker for all of your workout needs.
 
 #### Change Log
+
+4
+- edits to base and index to be in line with energie app
+- creates model classes
+
 3
 - creates the first index view
 - registers the view with the urls
