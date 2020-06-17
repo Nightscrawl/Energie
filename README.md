@@ -1,9 +1,9 @@
 # Web Programming with Python - Final
 
-### Energie
+## Energie
 An exercise tracker for all of your workout needs.
 
-##### Change Log
+#### Change Log
 1
 - registers and configs the db
 - migrates the db
