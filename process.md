@@ -90,9 +90,9 @@ urlpatterns=[
 ```
 
 #### set up templates -----
-in eapp, create 'templates' folder
-in templates, create base.html and add starter code
-in templates, create folder 'eapp' [same name as app; all other templates go here]
+in eapp, create 'templates' folder  
+in templates, create base.html and add starter code  
+in templates, create folder 'eapp' [same name as app; all other templates go here]  
 in templates/eapp, create index.html and add code
 
 #### run server -----
