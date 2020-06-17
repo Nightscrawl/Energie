@@ -17,7 +17,7 @@ clone repo into empty folder
 
 move everything back into folder
 
-###### register app and config db -----
+#### register app and config db -----
 in project folder, settings.py:
 
 ```python
@@ -48,10 +48,10 @@ DATABASES = {
 in pgAdmin4:
 right-click on 'databases' and create new db, same name as one registered in settings.py
 
-###### migrate db -----
+#### migrate db -----
 `python manage.py migrate`
 
-###### redirect project urls -----
+#### redirect project urls -----
 ```python
 in project folder, urls.py:
 
