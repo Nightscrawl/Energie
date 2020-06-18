@@ -134,3 +134,31 @@ admin.site.register(Exercise)
 url is [ http://127.0.0.1:8000/admin/ ]
 
 add sample data
+
+#### import models -----
+in eapp, views.py:  
+`from .models import *`
+
+#### create view -----
+
+```python
+def getExerciseTypes(request):
+    type_list=ExerciseType.objects.all()
+    return render(request, 'eapp/extypes.html', {'type_list': type_list})
+```
+
+#### add the url -----
+in eapp, urls.py:  
+`path('extypes/', views.getExerciseTypes, name='extypes'),`
+
+#### create template -----
+in templates/eapp, create extypes.html and add code
+
+#### add link to base.html -----
+
+```html
+<ul class="nav navbar-nav">
+	<li><a href="{% url 'extypes' %}">Exercise Types</a></li>
+               
+</ul>
+```

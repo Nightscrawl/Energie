@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns=[
     path('', views.index, name='index'),
+    path('extypes/', views.getExerciseTypes, name='extypes'),
 ]
