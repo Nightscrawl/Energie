@@ -283,8 +283,73 @@ path('newexercise/', views.newExercise, name='newexercise'),
 #### create form template -----
 in templates/eapp, create newexercise.html and add code
 
-#### add link to base.html ----
+#### add link to base.html -----
 
 ```html
 <li><a href="{% url 'newexercise' %}">Add Exercise</a></li>
 ```
+
+### authentication setup -----
+
+create users and groups in app admin panel  
+group permissions: all app related + user add/change/view  
+add users to group
+
+#### new include -----
+in project folder, urls.py:
+
+```python
+path('accounts/', include('django.contrib.auth.urls')),
+```
+
+#### registration -----
+in templates, create folder 'registration'  
+add login.html template and add code
+
+#### login/outmessage views -----
+
+```python
+def loginMessage(request):
+    return render(request, 'eapp/loginmessage.html')
+
+def logoutMessage(request):
+    return render(request, 'eapp/logoutmessage.html')
+```
+
+#### register views in urls.py -----
+in eapp, urls.py:
+
+```python
+path('loginmessage/', views.loginMessage, name='loginmessage'),
+path('logoutmessage/', views.logoutMessage, name='logoutmessage'),
+```
+
+#### create login/outmessage templates -----
+in templates/eapp, create loginmessage.html and add code  
+in templates/eapp, create logoutmessage.html and add code
+
+#### register views in settings.py -----
+in project folder, settings.py at the very end of the doc:
+
+```python
+LOGIN_REDIRECT_URL='loginmessage'
+LOGOUT_REDIRECT_URL='logoutmessage'
+```
+
+#### add @login_required to decorator to views -----
+import decorators:
+
+```python
+from django.contrib.auth.decorators import login_required
+```
+
+add `@login_required` before each view that requires login
+
+#### add links to nav in base.html -----
+
+```html
+<li><a href="{% url 'login' %}">Login</a></li>
+<li><a href="{% url 'logout' %}">Logout</a></li>
+```
+
+run server and test everything: login, links, form requirement

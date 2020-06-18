@@ -5,6 +5,17 @@ An exercise tracker for all of your workout needs.
 
 #### Change Log
 
+8 -----
+- adds include to project level urls.py
+- creates folder 'registration' in templates
+- creates login.html
+- adds login/outmessage views
+- registers views in urls.py
+- registers views in settings.py
+- adds @login_required decorator to views
+- adds login/out links to base.html
+- updates process
+
 7 -----
 - creates forms.py
 - adds a basic form

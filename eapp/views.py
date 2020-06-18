@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import *
 from .forms import *
 from django.shortcuts import get_list_or_404, get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -25,6 +26,7 @@ def exerciseDetails(request, id):
     return render(request, 'eapp/exdetails.html', context=context)
 
 
+@login_required
 def newExercise(request):
      form=ExerciseForm
      if request.method=='POST':
@@ -36,3 +38,10 @@ def newExercise(request):
      else:
           form=ExerciseForm()
      return render(request, 'eapp/newexercise.html', {'form': form})
+
+
+def loginMessage(request):
+    return render(request, 'eapp/loginmessage.html')
+
+def logoutMessage(request):
+    return render(request, 'eapp/logoutmessage.html')
