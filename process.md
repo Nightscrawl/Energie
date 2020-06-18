@@ -45,7 +45,7 @@ DATABASES = {
 }
 ```
 
-in pgAdmin4:
+in pgAdmin4:  
 right-click on 'databases' and create new db, same name as one registered in settings.py
 
 #### migrate db -----
@@ -136,13 +136,13 @@ url is [ http://127.0.0.1:8000/admin/ ]
 add sample data
 
 #### import models -----
-in eapp, views.py:
+in views.py:
 
 ```python
 from .models import *
 ```
 
-#### create view -----
+#### create exercise types view -----
 
 ```python
 def getExerciseTypes(request):
@@ -168,3 +168,61 @@ in templates/eapp, create extypes.html and add code
                
 </ul>
 ```
+
+#### create exercise view -----
+
+```python
+def getExercises(request):
+    exercise_list=Exercise.objects.all()
+    return render(request, 'eapp/exercises.html', {'exercise_list': exercise_list})
+```
+
+#### add the url -----
+in eapp, urls.py:
+
+```python
+path('exercises/', views.getExercises, name='exercises')
+```
+
+#### create template -----
+in templates/eapp, create exercises.html and add code
+
+#### add link to base.html -----
+
+```html
+<li><a href="{% url 'exercises' %}">Exercises</a></li>
+```
+
+#### create details view -----
+in views.py, add new import:
+
+```python
+from django.shortcuts import get_list_or_404, get_object_or_404
+```
+
+add new view:
+
+```python
+def exerciseDetails(request, id):
+    exer=get_object_or_404(Exercise, pk=id)  # don't forget the model name here!!
+    context={
+        'exer' : exer,
+    }
+    return render(request, 'eapp/exdetails.html', context=context)
+```
+
+#### register url -----
+in eapp, urls.py:
+
+```python
+path('exdetails/<int:id>', views.exerciseDetails, name='exdetails'),
+```
+
+### modify exercise template -----
+
+```html
+<td><a href="{% url 'exdetails' id=e.id %}">{{ e.exerciseName }}</a></td> <!-- make sure to update object! (e) -->
+```
+
+#### create details template -----
+in templates/eapp, create exdetails.html and add code

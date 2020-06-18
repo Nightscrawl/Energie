@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h2>{{ exer.exerciseName }}</h2>
+
+<p>Exercise Type: {{ exer.exerciseType }} </p>
+<p>Added by: {{ exer.user }}</p>
+<p>Date: {{ exer.exerciseDate }}</p>
+<p>Duration (in minutes): {{ exer.exerciseDurationMinutes }}</p>
+<p>Notes: {{ exer.exerciseNotes }}</p>
+
+
+{% endblock %}

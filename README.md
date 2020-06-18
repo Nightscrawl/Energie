@@ -4,6 +4,17 @@
 An exercise tracker for all of your workout needs.
 
 #### Change Log
+6 -----
+- creates exercise view
+- registers url of exercise view
+- creates exercise template
+- adds link to base.html nav
+- creates details view
+- registers url of details view
+- changes exercise template to link exercise name to an exercise detail
+- creates the details template
+- updates process
+
 5 -----
 - imports models into views.py
 - creates the exercise types view
