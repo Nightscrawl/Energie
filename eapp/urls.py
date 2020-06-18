@@ -6,4 +6,5 @@ urlpatterns=[
     path('extypes/', views.getExerciseTypes, name='extypes'),
     path('exercises/', views.getExercises, name='exercises'),
     path('exdetails/<int:id>', views.exerciseDetails, name='exdetails'),
+    path('newexercise/', views.newExercise, name='newexercise'),
 ]

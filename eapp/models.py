@@ -29,7 +29,7 @@ class Exercise(models.Model):
     exerciseName=models.CharField(max_length=255)
     exerciseType=models.ForeignKey(ExerciseType, on_delete=models.DO_NOTHING)
     user=models.ForeignKey(User, on_delete=models.DO_NOTHING)
-    exerciseDate=models.DateField()
+    exerciseDate=models.DateField(default='mm/dd/yyyy')
     exerciseDurationMinutes=models.SmallIntegerField()
     exerciseNotes=models.TextField(null=True, blank=True)
 

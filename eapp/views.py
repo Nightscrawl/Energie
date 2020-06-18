@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import *
+from .forms import *
 from django.shortcuts import get_list_or_404, get_object_or_404
 
 # Create your views here.
@@ -22,3 +23,16 @@ def exerciseDetails(request, id):
         'exer' : exer,
     }
     return render(request, 'eapp/exdetails.html', context=context)
+
+
+def newExercise(request):
+     form=ExerciseForm
+     if request.method=='POST':
+          form=ExerciseForm(request.POST)
+          if form.is_valid():
+               post=form.save(commit=True)
+               post.save()
+               form=ExerciseForm()
+     else:
+          form=ExerciseForm()
+     return render(request, 'eapp/newexercise.html', {'form': form})

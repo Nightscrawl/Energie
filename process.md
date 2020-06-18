@@ -218,7 +218,7 @@ in eapp, urls.py:
 path('exdetails/<int:id>', views.exerciseDetails, name='exdetails'),
 ```
 
-### modify exercise template -----
+#### modify exercise template -----
 
 ```html
 <td><a href="{% url 'exdetails' id=e.id %}">{{ e.exerciseName }}</a></td> <!-- make sure to update object! (e) -->
@@ -226,3 +226,65 @@ path('exdetails/<int:id>', views.exerciseDetails, name='exdetails'),
 
 #### create details template -----
 in templates/eapp, create exdetails.html and add code
+
+#### create forms.py -----
+in eapp, create forms.py and import models:
+
+```python
+from django import forms
+from .models import *
+```
+
+create basic form:
+
+```python
+class ExerciseForm(forms.ModelForm):
+    class Meta:
+        model = Exercise
+        fields = '__all__'
+
+        # forces the date input field to use this format
+        ExerciseDate = forms.DateField(
+            widget=forms.DateInput(format='%m/%d/%Y'),
+            input_formats=('%m/%d/%Y')
+        )
+```
+
+#### create form view -----
+add new import:
+
+```python
+from .forms import *
+```
+
+add form view:
+
+```python
+def newExercise(request):
+     form=ExerciseForm
+     if request.method=='POST':
+          form=ExerciseForm(request.POST)
+          if form.is_valid():
+               post=form.save(commit=True)
+               post.save()
+               form=ExerciseForm()
+     else:
+          form=ExerciseForm()
+     return render(request, 'eapp/newexercise.html', {'form': form})
+```
+
+#### add form to urls.py -----
+in eapp, urls.py:
+
+```python
+path('newexercise/', views.newExercise, name='newexercise'),
+```
+
+#### create form template -----
+in templates/eapp, create newexercise.html and add code
+
+#### add link to base.html ----
+
+```html
+<li><a href="{% url 'newexercise' %}">Add Exercise</a></li>
+```

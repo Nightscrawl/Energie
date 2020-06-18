@@ -4,6 +4,16 @@
 An exercise tracker for all of your workout needs.
 
 #### Change Log
+
+7 -----
+- creates forms.py
+- adds a basic form
+- adds form view
+- adds form to urls.py
+- creates form template
+- adds link to base.html
+- updates process
+
 6 -----
 - creates exercise view
 - registers url of exercise view
