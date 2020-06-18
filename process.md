@@ -136,8 +136,11 @@ url is [ http://127.0.0.1:8000/admin/ ]
 add sample data
 
 #### import models -----
-in eapp, views.py:  
-`from .models import *`
+in eapp, views.py:
+
+```python
+from .models import *
+```
 
 #### create view -----
 
@@ -148,8 +151,11 @@ def getExerciseTypes(request):
 ```
 
 #### add the url -----
-in eapp, urls.py:  
-`path('extypes/', views.getExerciseTypes, name='extypes'),`
+in eapp, urls.py:
+
+```python
+path('extypes/', views.getExerciseTypes, name='extypes'),
+```
 
 #### create template -----
 in templates/eapp, create extypes.html and add code
