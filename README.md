@@ -5,6 +5,10 @@ An exercise tracker for all of your workout needs.
 
 #### Change Log
 
+10
+- edits process to add initial setup with commands
+- adds test run command
+
 9 -----
 - tests for everything!
 - completes process

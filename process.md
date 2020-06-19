@@ -1,6 +1,27 @@
 # Energie Process: Start to Finish
 
-in main class folder:
+## initial setup
+
+install python  
+install postgreSQL
+
+create python virtual environment:  
+`python -m venv venv`
+
+activate virtual environment:  
+`source venv\scripts\activate`
+
+install django:  
+`pip install django`
+
+install psycopg2, python driver for PostgreSQL:  
+`pip install psycopg2`
+
+-----
+
+## building the app
+
+in main class folder:  
 `venv\scripts\activate`
 
 `django-admin startproject energie`
@@ -377,3 +398,9 @@ write test for exercise
 write tests for basic views  
 write test to create new exercise  
 write test for form validation
+
+#### run tests -----
+`python manage.py test -v 2`
+
+
+## DONE!
