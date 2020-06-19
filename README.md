@@ -5,6 +5,10 @@ An exercise tracker for all of your workout needs.
 
 #### Change Log
 
+9 -----
+- tests for everything!
+- completes process
+
 8 -----
 - adds include to project level urls.py
 - creates folder 'registration' in templates

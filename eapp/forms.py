@@ -7,7 +7,7 @@ class ExerciseForm(forms.ModelForm):
         model = Exercise
         fields = '__all__'
 
-        ExerciseDate = forms.DateField(
-            widget=forms.DateInput(format='%m/%d/%Y'),
-            input_formats=('%m/%d/%Y')
-        )
+        # ExerciseDate = forms.DateField(
+        #     widget=forms.DateInput(format='%m/%d/%Y'),
+        #     input_formats=('%m/%d/%Y')
+        # )

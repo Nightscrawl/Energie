@@ -288,8 +288,9 @@ in templates/eapp, create newexercise.html and add code
 ```html
 <li><a href="{% url 'newexercise' %}">Add Exercise</a></li>
 ```
+-----
 
-### authentication setup -----
+## authentication setup
 
 create users and groups in app admin panel  
 group permissions: all app related + user add/change/view  
@@ -353,3 +354,26 @@ add `@login_required` before each view that requires login
 ```
 
 run server and test everything: login, links, form requirement
+
+-----
+
+## TESTS
+
+#### import models -----
+in eapp, tests.py:
+
+```python
+from django.test import Client
+from .models import *
+from .forms import *
+from .views import *
+from django.urls import reverse
+from django.contrib.auth.models import User
+```
+
+#### create tests -----
+write test for exercise type  
+write test for exercise  
+write tests for basic views  
+write test to create new exercise  
+write test for form validation
